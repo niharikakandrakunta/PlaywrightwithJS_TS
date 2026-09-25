@@ -1,30 +1,24 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+const config = {
+  testDir: "./tests",
+  testMatch: "**/*.spec.js",
+  retries: 0,
 
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
-const config = ({
-  testDir: './tests',
-   reporter: 'html',
-   timeout:10*1000,
-   expect:{
-    timeout:10*1000,
-   },
+  timeout: 10 * 1000,
+  expect: {
+    timeout: 10 * 1000,
+  },
+
+  reporter: "html",
   /* Configure projects for major browsers */
-  use:{
-      browsername: 'chromium', 
-      headless:false,          
-    }, 
-  
- });
+  use: {
+    browsername: "chromium",
+    headless: true,
+    screenshot: "on",
+    trace: "on",
+  },
+};
 
-module.exports = config
+module.exports = config;
