@@ -19,8 +19,10 @@ test("Special Locators", async ({ page }) => {
 });
 
 test.only("Test Level timeout", async ({ page }) => {
-  
+
+  test.setTimeout(6000);
   const slowExpect = expect.configure({timeout:9000});
+  page.setDefaultTimeout(9000);
   await page.goto("https://rahulshettyacademy.com/angularpractice/");
   await page.getByLabel("Check me out if you Love IceCreams!").click();
   await page.getByLabel("Employed").check();

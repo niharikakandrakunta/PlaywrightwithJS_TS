@@ -7,6 +7,7 @@ const config = {
   retries: 0,
 
   timeout: 10 * 1000,
+  actionTimeout:70*1000,
   expect: {
     timeout: 10 * 1000,
   },
@@ -15,8 +16,8 @@ const config = {
   /* Configure projects for major browsers */
   use: {
     browsername: "chromium",
-    headless: true,
-    screenshot: "on",
+    headless: false,
+    screenshot: "on",    
     trace: "on",
   },
 };
